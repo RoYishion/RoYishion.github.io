@@ -1,6 +1,6 @@
-var name = '小明',
-var age = 18,
-var flag = true,
+let name = '小明';
+let age = 18;
+let flag = true;
 
 function sum(num1, num2) {
     return num1 + num2
