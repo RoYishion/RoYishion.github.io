@@ -1,2 +1,2 @@
-var name = '小红',
-var flag = false
+var name = '小红';
+var flag = false;
