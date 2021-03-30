@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <title>高阶函数指令进行循环</title>
+</head>
+<body>
+    
+    <script src = "D:/vue/vue.js"></script>
+    
+    <script>
+        const nums = [10, 20, 60, 40, 200, 160, 500]
+
+        // 1.filter函数的使用，取出nums里所有小于100的数字
+        let newNums = nums.filter(function(n) {
+            return n < 100
+        })
+        console.log(newNums);
+        // 2.map函数的使用，把取出的数字乘以2
+        let newNums2 = newNums.map(function(n) {
+            return n * 2
+        })
+        console.log(newNums2);
+        // 3.reduce函数的使用，把newNums2里的数字相加
+        let total = newNums2.reduce(function(prevValue, n) {
+            return prevValue + n
+        }, 0)
+        console.log(total);
+
+
+
+        // 前面三段简化
+        let total = nums.filter(function(n) {
+            return n < 100
+        }).map(function(n) {
+            return n * 2
+        }).reduce(function(prevValue, n) {
+            return prevValue + n
+        }, 0)
+
+
+        // 再简化
+        let total = nums.filter(n => n < 100).map(n => n * 2).reduce((pre, n) => pre + n);
+        console.log(total);
+    </script>
+</body>
+</html>

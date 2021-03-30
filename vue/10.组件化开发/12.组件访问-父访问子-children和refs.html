@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件访问-父访问子-children和refs</title>
+</head>
+<body>
+
+<div id = "app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn ref='a'></cpn>
+    <button @click='btnClick'>按钮</button>
+</div>
+
+<template id='cpn'>
+    <div>我是子组件</div>
+</template>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        methods: {
+            btnClick() {
+                // 1. $children（会拿到所有子组件）
+                // console.log(this.$children);
+                // for(let c of this.$children) {
+                //     console.log(c.name);
+                //     c.showMessage()
+                // }
+
+                // 2. $refs（对象类型），默认是空对象  ref='a'
+                console.log(this.$refs.a.name)
+            }
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        name: '我是子组件的name'
+                    }
+                },
+                methods: {
+                    showMessage() {
+                        console.log('showMessage')
+                    }
+                }
+            }
+
+        }
+    })
+</script>
+
+</body>
+</html>

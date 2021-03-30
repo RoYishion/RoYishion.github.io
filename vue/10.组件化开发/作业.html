@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id = "app">
+    <cpn @add='changeTotal' @sub='changeTotal'></cpn>
+    {{Total}}
+</div>
+
+<template id='cpn'>
+    <div>
+        <button @click='add'>+</button>
+        <button @click='sub'>-</button>
+    </div>
+</template>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            Total: 0
+        },
+        methods: {
+            changeTotal(counter) {
+                this.Total = counter
+            }
+        },
+        components: {
+            'cpn': {
+                template: '#cpn',
+                data() {
+                    return{
+                        counter: 0
+                    }
+                },
+                methods: {
+                    add() {
+                        this.counter ++;
+                        this.$emit('add', this.counter)
+                    },
+                    sub() {
+                        this.counter --;
+                        this.$emit('sub', this.counter)
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

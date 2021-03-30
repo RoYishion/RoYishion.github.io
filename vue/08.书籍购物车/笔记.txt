@@ -1,0 +1,52 @@
+disabled指令：使某个模块失去它原来的功能
+<button v-bind:disabled="book.count <= 1">按钮</button>
+当book.count<=1，按钮无法使用
+
+
+filters: {
+    showPrice(price){
+        return '$' + price.toFixed(2)
+    }
+}
+过滤器，统一给某个类型参数转变形式
+
+
+按钮和按钮所绑定的函数同时传入index参数可以对函数里对指定index下的元素进行操作
+
+
+for(let book of this.books){
+	AllPrice = AllPrice + book.count * book.price;
+};
+        return AllPrice;
+这样写for循环更加简便
+
+
+
+
+
+
+
+
+// 1.filter函数的使用，取出nums里所有小于100的数字
+let newNums = nums.filter(function(n) {
+	return n < 100
+})
+console.log(newNums);
+// filter中的回调函数有一个要求，必须返回一个boolean值。当返回true时，函数内会自动把这次回调的n加入到新的数组中；当返回false时，函数内部会过滤掉这次的n.
+
+// 2.map函数的使用，把取出的数字乘以2
+let newNums2 = newNums.map(function(n) {
+	return n * 2
+})
+console.log(newNums2);
+
+// 3.reduce函数的使用，把newNums2里的数字相加
+let total = newNums2.reduce(function(prevValue, n) {
+	return prevValue + n
+}, 0)
+console.log(total);
+// 第一次循环：prevValue = 0， n = 20
+// 第二次循环：prevValue = 20， n = 40
+// 第三次循环：prevValue = 60， n = 80
+// 第四次循环：prevValue = 140， n = 100
+// 最后返回prevValue = 240

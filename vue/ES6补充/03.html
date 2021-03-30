@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>const的使用</title>
+</head>
+<body>
+
+<script>
+    //1.const赋值后不可修改
+    const sb = 1;
+    sb = 2;
+
+    //2.使用const的时候必须赋值
+    const sb;
+
+    //3.常量的含义是指向的对象不能修改，但是可以改变对象内部的属性
+    const sb = {
+        name: 'shabi',
+        age: 18,
+        height: 180
+    }
+
+    sb.name = 'naocan';
+    sb.age = 20;
+    sb.height = 188;
+
+    console.log(sb);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<img v-bind:src="imgURL">   imgURL: "图片地址"
+<a v-bind:href="aHref">百度一下</a>  aHref: 'http://www.baidu.com'
+v-bind指令，动态绑定imgURL/aHref里的地址
+缩写：:    例：<img :src="imgURL">
+
+
+<h v-bind:class="{类名: boolean, 类名: boolean}">{{message}}</h>
+.active{color: red;}
+<h v-bind:class="{active: isActive, line: isLine}">{{message}}</h>
+    data: {
+	message: 'Hello World',
+	isActive: true,
+	isLine: true
+}
+class语法  只会把布尔值为true的对象属性加载到div中，可以动态改变元素属性
+
+
+<h v-bind: style="{key(css属性名)： value(属性值)}">{{message}}</h>
+v-bind动态绑定style（对象语法）
+<h v-bind:style="{fontSize: finalSize, color: finalColor}">{{message}}</h>
+data: {
+	message: 'Hello World',
+ 	finalSize: '100px',
+	finalColor: 'red'
+}
+value属性值不加引号时，当成变量解析；加引号时，当成变量值使用。
+
+
+v-bind动态绑定style(数组语法)
+<h v-bind:style="[baseStyle,baseStyle1]">{{message}}</h>
+data: {
+	message: 'Hello World',
+        baseStyle: {backgroundColor: 'red'},
+        baseStyle1: {fontSize: '100px'},
+}

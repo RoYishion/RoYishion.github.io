@@ -1,0 +1,29 @@
+计算属性computed
+<h>{{fullName}}</h>
+computed: {
+	fullName: function () {
+		return this.firstName + ' ' + this.lastName
+	}
+}
+fullName使用的时候当做属性来使用，而不是函数，不需要加括号
+
+
+计算属性的setter和getter
+计算属性一般没有set方法，就是一个只读属性。用get方法实现目的
+计算属性内部有缓存
+
+
+
+fullName: {
+	get: function () {
+		return this.firstName + ' ' + this.lastName;
+	}
+}
+
+可以简写为
+
+fullName: function () {
+	return this.firstName + ' ' + this.lastName;
+}
+
+因此使用的时候不需要加括号

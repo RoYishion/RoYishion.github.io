@@ -1,0 +1,80 @@
+v-on指令  语法糖（简写）为   @
+
+<button v-on:click="increase()">+</button>
+<button v-on:click="decrease()">-</button>
+等效为
+<button @click="increase()">+</button>
+<button @click="decrease()">-</button>
+
+
+
+
+1.事件调用的方法没有参数
+<button @click="btn1Click()">按钮1</button>
+<button @click="btn1Click">按钮1</button>
+
+btn1Click() {
+	console.log("btn1Click");
+}
+
+2.在事件定义时，写方法时省略了小括号，但是方法本身是需要一个参数的，这个时候，vue会默认将浏览器生成的event事件对象作为参数传入到方法
+<button @click="btn2Click">按钮2</button>
+
+btn2Click(event) {
+	console.log("--------",event);
+}
+
+3.在方法定义时，我们需要event对象，同时又需要其他参数；在调用方法时，如何手动获取浏览器参数的event对象： $event
+<button @click="btn3Click(123, $event)">按钮3</button>
+<button @click="btn3Click('abc', $event)">按钮3</button>
+<button @click="btn3Click(abc, $event)">按钮3</button>
+
+data: {
+            abc: 123
+        }
+
+btn3Click(abc, event) {
+	console.log("++++++", abc, event);
+}
+
+
+
+
+
+
+1.stop修饰符的使用，阻止冒泡
+<div @click="divClick">
+	aaa
+        <button @click.stop="btnClick">按钮</button>
+</div>
+
+
+2.prevent修饰符的使用，阻止默认事件
+<form action="baidu">
+	<input type="submit" value="提交" @click.prevent="submitClick">
+</form>
+
+
+3.监听某个键盘的键帽
+<input type="text" @keyup="keyUp">
+
+
+4.once修饰符的使用，只触发一次回调
+<button @click.once="btn2click"></button>
+
+
+btnClick() {
+	console.log("btnClick");
+},
+divClick() {
+	console.log("divClick");
+},
+submitClick(){
+	console.log("submitClick");
+},
+keyUp(){
+	console.log("keyUp");
+},
+btn2click(){
+	console.log("btn2click");
+}

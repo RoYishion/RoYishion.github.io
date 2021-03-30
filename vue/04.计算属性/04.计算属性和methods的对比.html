@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性和methods的对比</title>
+</head>
+<body>
+
+<div id = "app">
+    <!--1.直接拼接：语法过于繁琐-->
+    <h2>{{firstName}} {{lastName}}</h2>
+
+    <!--2.通过定义methods-->
+    <h2>{{getFullName()}}</h2>
+
+    <!--3.通过computed-->
+    <h2>{{fullName}}</h2>
+</div>
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'Luo',
+            lastName: 'Yushun'
+        },
+        methods: {
+            getFullName: function(){
+                return this.firstName + ' ' + this.lastName;
+            }
+        },
+        computed: {
+            fullName: function(){
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

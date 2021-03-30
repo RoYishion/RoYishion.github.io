@@ -1,0 +1,14 @@
+Mustache语法:   {{ }}  “双花括号”
+括号里面不仅可以直接写变量，也可以写简单的表达式
+
+<h v-once>{{message}}</h>  v-once 该指令表示的元素只展示一次，不会被改变
+
+<h v-html="url"></h>
+url: '<a href="http://www.baidu.com">百度一下</a>'
+v-html 该指令把字符串解析为网页链接
+
+<h v-text="message"></h>  v-text也可以用于展示message里的文字信息，但是会覆盖掉Mustache里的内容，不够灵活
+
+<h v-pre>{{message}}</h>  v-pre  该指令把<h></h>标签里的内容原封不动显示出来，不解析
+
+<div id = "app" v-cloak></div>  v-cloak  该指令用于隐藏某些情况下浏览器显示出来的未编译过的Musatche标签

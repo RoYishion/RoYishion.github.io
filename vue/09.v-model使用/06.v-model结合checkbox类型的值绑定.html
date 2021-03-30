@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model结合checkbox类型的值绑定</title>
+</head>
+<body>
+    
+<div id = "app">
+    <!-- <input type="checkbox" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" value="足球" v-model="hobbies">足球
+    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球 -->
+
+    <label v-for="item in originHobbies" :for="item">
+        <input type="checkbox" :value="item" :id="item" v-model="hobbies">{{item}}
+    </label>
+    <h2>你的爱好是：{{hobbies}}</h2>
+</div>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            hobbies: [],
+            originHobbies: ['篮球', '足球', '羽毛球', '乒乓球']
+        }
+    })
+</script>
+
+</body>
+</html>

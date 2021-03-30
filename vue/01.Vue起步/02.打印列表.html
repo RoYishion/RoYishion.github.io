@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打印列表</title>
+</head>
+<body>
+
+<div id = "app">
+    <ul>
+        <li v-for = "item in movies">{{item}}</li>
+    </ul>
+</div>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['少年派', '少林足球', '长江七号', '星际穿越']
+        }
+    })
+</script>
+</body>
+</html>

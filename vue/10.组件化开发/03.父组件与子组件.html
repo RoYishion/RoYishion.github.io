@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父组件与子组件</title>
+</head>
+<body>
+
+<div id = "app">
+    <!-- <cpn1></cpn1> -->
+    <cpn2></cpn2>
+</div>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    // 1.创建第一个组件构造器
+    const cpnC1 = Vue.extend({
+        template: `
+            <div>
+                <h2>我是标题1</h2>
+                <p>我是内容1</p>
+            </div>
+        `
+    })
+
+    // 1.创建第二个组件构造器
+    const cpnC2 = Vue.extend({
+        template: `
+            <div>
+                <h2>我是标题2</h2>
+                <p>我是内容2</p>
+                <cpn1></cpn1>
+            </div>
+        `,
+        components: {
+            cpn1: cpnC1  //在构造器2里面注册组件1
+        }
+    })
+
+    //root组件（可以理解为cpn2的父组件，cpn1的爷爷组件）
+    const app = new Vue({
+        el: '#app',
+        components: {
+        //     cpn1: cpnC1,  // 注册局部组件，只能在单个Vue的实例下使用
+            cpn2: cpnC2  //注册组件2
+        }
+    })
+</script>
+
+</body>
+</html>

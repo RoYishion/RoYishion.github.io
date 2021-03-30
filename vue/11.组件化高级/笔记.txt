@@ -1,0 +1,76 @@
+1.插槽的基本使用 <slot></slot>
+2.插槽的默认值 <slot>默认值</slot>
+3.如果有多个值，同时放入组件进行替换，一起作为替换元素
+
+<div id = "app">
+    <cpn></cpn>
+    <cpn><span>Ro Yishion</span></cpn>
+    <cpn><i>123</i></cpn>
+    <cpn></cpn>
+
+    <cpn>
+        <div>当有多个标签时</div>
+        <h2>会全部进行替换</h2>
+    </cpn>
+</div>
+
+<template id='cpn'>
+    <div>
+        <h2>我是组件</h2>
+        <p>我也是组件</p>
+        <slot><button>按钮</button></slot>  // 默认值为按钮
+    </div>
+</template>
+
+const app = new Vue({
+    el: '#app',
+    components: {
+        cpn: {
+            template: '#cpn'
+        }
+    }
+})
+
+
+
+
+
+
+作用域插槽
+<div id="app">
+    <cpn></cpn>
+
+    <cpn>
+        <!--目的是为了获取子组件中的Planguages-->
+        <template slot-scope='slot'>
+            <span v-for='item in slot.data'>{{item}}--</span>
+        </template>
+    </cpn>
+
+    <cpn>
+        <template slot-scope='slot'>
+            <span v-for='item in slot.data'>{{item}} * </span>
+        </template>
+    </cpn>
+</div>
+
+<template id='cpn'>
+    <div>
+        <slot :data='Planguages'>  <!--data是可以自定义的名字-->
+            <ul>
+                <li v-for='item in Planguages'>{{item}}</li>
+            </ul>
+        </slot>
+    </div>
+</template>
+
+components: {
+    cpn: {
+        template: '#cpn',
+        data() {
+            return {
+                Planguages: ['JavaScript', 'python', 'C#', 'Go']
+            }
+        }
+    }
+}

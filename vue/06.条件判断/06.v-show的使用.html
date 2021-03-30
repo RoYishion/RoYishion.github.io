@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show的使用</title>
+</head>
+<body>
+
+<div id = "app">
+    <!-- v-if:当条件为false时，包含v-if指令的元素会被从dom中删除-->
+    <h2 v-if="isShow" id="a">{{message}}</h2>
+
+    <!-- v-show:当条件为false时，v-show只是给元素增加了一个行内样式：display: none-->
+    <h2 v-show="isShow" id="b">{{message}}</h2>
+</div>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World',
+            isShow: true
+        }
+    })
+</script>
+
+</body>
+</html>

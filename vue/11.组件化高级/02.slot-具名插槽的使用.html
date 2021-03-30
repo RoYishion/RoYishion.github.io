@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot-具名插槽的使用</title>
+</head>
+<body>
+
+<div id="app">
+    <cpn>
+        <span slot='center'>标题</span>
+        <button slot='left'>返回</button>
+    </cpn>
+</div>
+
+<template id='cpn'>
+    <div>
+        <slot name='left'><span>左边的</span></slot>
+        <slot name='center'><span>中间的</span></slot>
+        <slot name='right'><span>右边的</span></slot>
+    </div>
+</template>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        components: {
+            cpn: {
+                template: '#cpn'
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

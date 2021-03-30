@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域插槽的案例</title>
+</head>
+<body>
+
+<div id="app">
+    <cpn></cpn>
+
+    <cpn>
+        <!--目的是为了获取子组件中的Planguages-->
+        <template slot-scope='slot'>
+            <span v-for='item in slot.data'>{{item}}--</span>
+        </template>
+    </cpn>
+
+    <cpn>
+        <template slot-scope='slot'>
+            <span v-for='item in slot.data'>{{item}} * </span>
+        </template>
+    </cpn>
+</div>
+
+<template id='cpn'>
+    <div>
+        <slot :data='Planguages'>  <!--data是可以自定义的名字-->
+            <ul>
+                <li v-for='item in Planguages'>{{item}}</li>
+            </ul>
+        </slot>
+    </div>
+</template>
+
+<script src = "D:/vue/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {},
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        Planguages: ['JavaScript', 'python', 'C#', 'Go']
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
