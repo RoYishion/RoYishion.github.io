@@ -1,4 +1,4 @@
-import {flag, sum} from 'aaa.js';
+import {flag, sum} from './aaa.js';
 
 if (flag) {
     console.log('小明');
