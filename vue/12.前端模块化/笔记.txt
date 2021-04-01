@@ -1,1 +1,33 @@
 当导入的多个js包里面有相同名字变量的时候，加入type='module'语句可以让js包模块化，使得各个js包里的变量名不产生冲突。但是这样做会让各个js包无法互相访问变量，就需要使用expor和import来进行导出和导入数据
+
+// 1.导出方式一
+export {
+    flag, sum
+}
+
+// 2.导出方式二
+export var num = 1000;
+export var height = 1.8;
+
+// 3.导出函数/类
+export function mul(num1, num2) {
+    return num1 + num2
+}
+
+export class Person{
+    run() {
+        console.log('奔跑');
+    }
+}
+
+// 5.export default  这种导出方式，可以让别的模块导入的时候重命名，且同一个模块只能有一个export default
+
+// const address = '广州';
+// export default address
+
+export default function(argument) {
+    console.log(argument);
+}
+
+
+导入方式看代码
