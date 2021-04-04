@@ -1,0 +1,26 @@
+局部安装webpack  开发时依赖，项目打包后不需要继续使用
+npm install webpack@3.6.0 --save-dev
+
+
+
+
+
+新建webpack.config.js文件，添加以下代码
+const path = require('path')
+
+module.exports = {
+    entry: './src/main.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
+    },
+}
+
+可实现自动填充绝对路径
+
+
+
+
+
+在package.json里的"script"添加"build": "webpack"
+可实现npm run build代替webpack指令，并且优先选择局部环境

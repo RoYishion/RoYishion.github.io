@@ -1,0 +1,16 @@
+css的局部loader安装
+npm install --save-dev css-loader@3.6.0
+npm install --save-dev style-loader
+
+在webpack.config.js里面进行配置
+module: {
+    rules: [
+        {
+            test: /\.css$/,
+            // css-loader只负责将css文件进行加载
+            // style-loader负责将样式添加到DOM中
+            // 使用多个loader时，从右向左读
+            use: ['style-loader', 'css-loader']
+        }
+    ]
+}
