@@ -57,92 +57,14 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info_js__ = __webpack_require__(2);
-// 1.使用commonjs的模块化规范
-const {add, mul} = __webpack_require__(1)
-
-console.log(add(20, 30));
-console.log(mul(20, 30));
-
-// 2.使用ES6的模块化规范
-
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["c" /* name */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["a" /* age */]);
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["b" /* height */]);
-
-// 3.依赖css文件
-__webpack_require__(3)
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-function add(num1, num2) {
-    return num1+num2
-}
-
-function mul(num1, num2) {
-    return num1*num2
-}
-
-module.exports = {
-    add, mul
-}
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const name = 'RoYishion';
-/* harmony export (immutable) */ __webpack_exports__["c"] = name;
-
-const age = 20;
-/* harmony export (immutable) */ __webpack_exports__["a"] = age;
-
-const height = 1.7;
-/* harmony export (immutable) */ __webpack_exports__["b"] = height;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css__);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js___default()(__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css___default.a, options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css___default.a.locals || {});
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -417,20 +339,7 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(6);
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, "body {\r\n    background-color: red;\r\n}", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-/* 6 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -528,6 +437,188 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info_js__ = __webpack_require__(4);
+// 1.使用commonjs的模块化规范
+const {add, mul} = __webpack_require__(3)
+
+console.log(add(20, 30));
+console.log(mul(20, 30));
+
+// 2.使用ES6的模块化规范
+
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["c" /* name */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["a" /* age */]);
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["b" /* height */]);
+
+// 3.依赖css文件
+__webpack_require__(5)
+
+// 4.依赖less文件
+__webpack_require__(9)
+
+document.writeln('<h2>你好</h2>')
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function add(num1, num2) {
+    return num1+num2
+}
+
+function mul(num1, num2) {
+    return num1*num2
+}
+
+module.exports = {
+    add, mul
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const name = 'RoYishion';
+/* harmony export (immutable) */ __webpack_exports__["c"] = name;
+
+const age = 20;
+/* harmony export (immutable) */ __webpack_exports__["a"] = age;
+
+const height = 1.7;
+/* harmony export (immutable) */ __webpack_exports__["b"] = height;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css__);
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js___default()(__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css___default.a, options);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_normal_css___default.a.locals || {});
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(7);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(8);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+exports.push([module.i, "body {\r\n    /* background-color: red; */\r\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = url && url.__esModule ? url.default : url;
+
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/葫芦娃.a2321bb5.jpg";
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_special_less__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_special_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_special_less__);
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __WEBPACK_IMPORTED_MODULE_0__node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js___default()(__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_special_less___default.a, options);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_1__node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_special_less___default.a.locals || {});
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\n  font-size: 50px;\n  color: orange;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
 
 /***/ })
 /******/ ]);
