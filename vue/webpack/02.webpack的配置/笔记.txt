@@ -4,7 +4,6 @@ npm install webpack@3.6.0 --save-dev
 
 
 
-
 新建webpack.config.js文件，添加以下代码
 const path = require('path')
 

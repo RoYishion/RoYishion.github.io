@@ -1,0 +1,63 @@
+配置Vue
+npm install vue@2.5.21 --save （开发时和运行时都依赖，所以不需要--dev）
+
+安装loader
+npm install --save-dev vue-loader@13.0.1
+npm install --save-dev vue-template-compiler@2.5.21
+安装之后在webpack.config.js里面配置loader
+module: {
+    rules: [
+        {
+            test: /\.vue$/,
+            use: ['vue-loader']
+        }
+    ]
+}        
+
+
+
+在webpack.config.js里面配置
+module.exports = {
+    entry: './src/main.js',
+    output: {},
+    module: {},
+    resolve: {
+        //alias: 别名
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
+    }
+}
+
+
+
+不需要在<div id='app'></div>里面写代码，只需要在Vue实例里面加上template，里面写上要展示的效果，当el和template同时存在，template里的内容会直接展示出来
+<div id="app">
+</div>
+
+new Vue({
+    el: '#app',
+    template: `
+        <div>
+            <h2>{{message}}</h2>
+            <button @click="btnClick">按钮</button>
+            <h2>{{name}}</h2>
+        </div>
+    `,
+    data: {
+        message: 'Hello Webpack',
+        name: 'RoYishion'
+    },
+    methods: {
+        btnClick() {
+
+        }
+    }
+})
+
+
+在webpack.config.js里面配置
+resolve: {
+    extensions: ['.js', '.css', '.vue']
+}
+可以省略导入文件名的后缀
