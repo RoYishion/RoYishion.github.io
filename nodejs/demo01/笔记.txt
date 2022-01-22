@@ -1,0 +1,5 @@
+var http = require('http');  // 表示引入http模块
+const url = require('url');  // 表示引入url模块
+
+运行：node+文件名
+或：supervisor+文件名（热更新）

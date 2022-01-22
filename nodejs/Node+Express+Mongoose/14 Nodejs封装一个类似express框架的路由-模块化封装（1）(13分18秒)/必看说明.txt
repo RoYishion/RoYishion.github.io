@@ -1,0 +1,12 @@
+访问静态文件：http://localhost:3000/index.html
+
+访问路由：
+
+http://localhost:3000/news
+
+http://localhost:3000/login
+
+http://localhost:3000/doLogin    （Post）
+
+
+具体路由参考项目配置

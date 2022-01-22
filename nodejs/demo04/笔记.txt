@@ -1,0 +1,3 @@
+当引入的自定义模块名称不是index.js的时候，在自定义文件夹里cmd输入npm init --yes生成package.json文件，可以解决。
+
+安装包的时候加上--sava可以把依赖包写入package.json，如果删掉node_modules可以通过npm i找到package.json对应的所有的包并安装
