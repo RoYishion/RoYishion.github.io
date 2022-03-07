@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性合计总价</title>
+</head>
+<body>
+<div id="app">
+    <ul v-for="item in items">
+        <li>{{'物品：' + item.name}} {{'数量：' + item.num}} {{'单价：' + item.price}}</li>
+        <img :src="item.path">
+    </ul>
+    <p>总价：{{total}}</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            items: [
+                {
+                    name:'iPhone7',
+                    num:2,
+                    price:5800,
+                    path:'images/iPhone7.jpg'
+                },
+                {
+                    name:'iPad',
+                    num:5,
+                    price:3600,
+                    path:'images/iPad.jpg'
+                },
+                {
+                    name:'MacBook',
+                    num:1,
+                    price:3600,
+                    path:'images/MacBook.jpg'
+                }
+            ]
+        },
+        computed: {
+            total:function(){
+                var total = 0;
+                this.items.forEach(function(item){
+                    total+=item.price*item.num;
+                })
+                return total;
+            }
+        }
+    })
+</script>
+</body>
+</html>

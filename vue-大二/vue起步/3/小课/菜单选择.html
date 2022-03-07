@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单选择</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #main{
+        width:432px;
+        margin:0 auto;
+        text-align:center;
+    }
+    nav{
+        display:inline-block;
+        margin:60px auto 45px;
+        background-color:#5597b4;
+        box-shadow:0 1px 1px #ccc;
+        border-radius:2px;
+    }
+    nav a{
+        display:inline-block;
+        padding: 18px 10px;
+        color:#fff;
+        font-weight:bold;
+        font-size:16px;
+        cursor:pointer;
+    }
+    b{
+        display:inline-block;
+        padding:5px 10px;
+        background-color:#c4d7e0;
+        border-radius:2px;
+        font-size:18px;
+    }
+    .show{
+        background-color:#e35885;
+    }
+    .show2:hover
+    { 
+        background-color:#e0ee23;
+    }
+</style>
+
+<body>
+<div id="main">
+    <nav>
+        <a v-for="(item, index) in items" :class="{show: item.active, show2: !item.active}" @click="makeActive(item, index)">{{item.name}}</a>
+    </nav>
+    <p>You chose <b>{{active}}</b></p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#main',
+        data:{
+            active:'HTML',
+            items:[
+                {name:'HTML', active:true},
+                {name:'CSS', active:false},
+                {name:'JavaScript', active:false},
+                {name:'Vue.js', active:false}
+            ]
+        },
+        methods: {
+            makeActive(item, index){
+                this.active = item.name;
+                for(var i=0; i<this.items.length;i++){
+                    this.items[i].active = false;
+                    this.items[i].over = false;
+                }
+                this.items[index].active = true;
+            }
+        }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+npm install element-ui -S   饿了么ui安装
+
+npm install babel-plugin-component -D  配置安装

@@ -1,0 +1,33 @@
+{% extends "views/homeIndex.html" %}
+{% block right %}
+<div id="searchUser">
+  <div style="color: red; ">{{info}}</div>
+  <form action="/users/updateUser" method="post">
+    <input type="text" name="id" style="display: none;" value="{{updateUser.id}}">
+    <div>
+      <label>姓名：</label>
+      <input type="text" name="username" required="required" value="{{updateUser.username}}">
+    </div>
+    <div>
+      <label>手机号：</label>
+      <input type="text" name="phone" required="required" value="{{updateUser.phone}}">
+    </div>
+    <div>
+      <label>角色：</label>
+      <select name="role_id" required="required">
+        <option value="">请选择角色</option>
+        {% for role in roles %}
+          {% if role.id == updateUser.role_id %}
+          <option value="{{role.id}}" selected>{{role.rolename}}</option>
+          {% else %}
+          <option value="{{role.id}}">{{role.rolename}}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+    <div>
+      <input type="submit" value="修改">
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息展示</title>
+
+<style>
+    .father {
+        width: 500px;
+        height: 800px;
+        border: 3px solid black;
+        border-radius: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: column;
+        background-color: bisque;
+    }
+    .father-page {
+        margin: 50px 50px;
+    }
+    .father .father-form {
+        margin: 10px 0;
+        display: flex;
+    }
+    .father .father-form table {
+        text-align: center;
+    }
+    .child-addPage {
+        margin: 100px 100px;
+        text-align: center;
+    }
+    .item-flex {
+        display: flex; 
+        justify-content: center;
+    }
+    .child-detailPage{
+        margin: 100px 100px;
+    }
+    .text-center{
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+<!--父组件-->
+<div id="app" class="father">
+    <div class="father-page" v-if="showMain">
+        <div>
+            <button type="button" @click="showAddPage">新增用户</button>
+        </div>
+        <div class="father-form">
+            <table class="table">
+                <tr>
+                    <td>#</td>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>操作</td>
+                </tr>
+                <tbody>
+                    <tr v-for="(person, index) in personInfo">
+                        <td>{{index + 1}}</td>
+                        <td>{{person.name}}</td>
+                        <td>{{person.sex == 1 ? '男' : '女'}}</td>
+                        <td>
+                            <button type="button" @click="detailPerson(person)">详情</button>
+                            <button type="button" @click="deletePerson(index)">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--子组件-->
+    <component :is="showComponent" @pass='getAddFromData' :personinfo="person"></component>
+</div>
+<!--新增子组件-->
+<template id="AddComponent">
+    <transition name="fade">
+        <div class="child-addPage" style="max-width: 375px;">
+            <form name="addForm" id="addForm">
+                <div>
+                    <label for="name">姓名</label>
+                    <div>
+                        <input type="text" id="name" placeholder="请输入姓名">
+                    </div>
+                </div>
+                <div>
+                    <label for="sex">性别</label>
+                    <div>
+                        <label>
+                            <input type="radio" name="sex" id="sex" value="1">男
+                        </label>
+                        <label>
+                            <input type="radio" name="sex" id="sex" value="0">女
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label for="skill">技能</label>
+                    <div>
+                        <input type="text" id="skill" placeholder="请输入技能">
+                    </div>
+                </div>
+                <div>
+                    <label for="sign">签名</label>
+                    <div>
+                        <textarea rows="3" id="sign" placeholder="请输入签名"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="selectAvatar">头像</label>
+                    <div>
+                        <select v-model="selectAvatar" id="selectAvatar" @change="changeImg(parseInt(selectAvatar))">
+                            <option value="1">第一张</option>
+                            <option value="2">第二张</option>
+                            <option value="3">第三张</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="item-flex">
+                        <img :src="avatar" alt="个人头像" style="width:140px;height:140px;">
+                    </div>
+                </div>
+                <div>
+                    <div class="item-flex">
+                        <button type="button" @click="cancelAddPerson">取消</button>
+                    </div>
+                    <div class="item-flex">
+                        <button type="button" @click="addPerson">确认</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </transition>
+</template>
+<!--详情子组件-->
+<template id="DetailComponent">
+    <transition name="fade">
+        <div class="child-detailPage">
+            <div class="form">
+                <div class="item-flex">
+                    <img :src="personinfo.avatar" alt="个人头像" style="width:140px; height:140px;">
+                </div>
+                <div class="text-center">
+                    <label for="name">姓名</label>
+                    <div>
+                        <span id="name">{{personinfo.name}}</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <label for="name">性别</label>
+                    <div>
+                        <span id="name">{{personinfo.sex == 1 ? '男' : '女'}}</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <label for="name">技能</label>
+                    <div>
+                        <span id="name">{{personinfo.skill}}</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <label for="name">签名</label>
+                    <div>
+                        <span id="name">{{personinfo.sign}}</span>
+                    </div>
+                </div>
+                <div class="item-flex">
+                    <button type="button" @click="back">返回</button>
+                </div>
+            </div>
+        </div>
+    </transition>
+</template>
+<script src="./vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                showComponent: '', // 利用 is 属性控制展示相应的子组件
+                showMain: true, // 是否展示主页面 boolean
+                personInfo: [ // 所有用户信息
+                { 
+                    name: '玛卡巴卡',
+                    sex: 1,
+                    skill:'嘤嘤嘤',
+                    sign: '嘤嘤嘤',
+                    avatar: 'image/1.jpg'
+                },
+                ],
+                person: {}
+            }
+        },
+        methods: {
+            showAddPage(){ // 展示新增页面
+                this.showMain = !this.showMain
+                this.showComponent = 'add-component'
+            },
+            getAddFromData(AddFormData) { // 父组件获取新增用户子组件的数据
+                this.personInfo.push(AddFormData)
+            },
+            deletePerson(index) { // 删除指定用户
+                this.personInfo.splice(index,1)
+            },
+            detailPerson(personInfo) { // 展示详情页面
+                this.person = personInfo
+                this.showMain = !this.showMain
+                this.showComponent = 'detail-component'
+            }
+        },
+        components: {
+            'add-component': { // 新增子组件
+                template: '#AddComponent',
+                data() {
+                    return {
+                        avatar: 'image/1.jpg',
+                        selectAvatar: 1
+                    }
+                },
+                methods: {
+                    changeImg(selectAvatar) { // 选择头像
+                        switch(selectAvatar) {
+                            case 1: this.avatar = 'image/1.jpg'
+                            break;
+                            case 2: this.avatar = 'image/2.jpg'
+                            break;
+                            case 3: this.avatar = 'image/3.jpg'
+                        }
+                    },
+                    addPerson() { // 新增用户
+                        // 获取并定义表单数据
+                        let formData = {
+                            name: addForm.name.value, 
+                            sex: addForm.sex.value, 
+                            skill: addForm.skill.value, 
+                            sign: addForm.sign.value,
+                            avatar: this.avatar
+                        }
+                        this.$emit('pass', formData) // 传递数据到父组件
+                        document.getElementById('addForm').reset() // 置空数据
+                        // 父组件显示，子组件隐藏
+                        this.$parent.showComponent = ''
+                        this.$parent.showMain = !this.$parent.showMain
+                    },
+                    cancelAddPerson() { // 取消新增
+                        document.getElementById('addForm').reset() // 置空数据
+                        // 父组件显示，子组件隐藏
+                        this.$parent.showComponent = ''
+                        this.$parent.showMain = !this.$parent.showMain
+                    }
+                }
+            },
+            'detail-component': { // 详情子组件
+                template: '#DetailComponent',
+                props: ['personinfo'],
+                data() {
+                    return {}
+                },
+                methods: {
+                    back() {
+                        // 父组件显示，子组件隐藏
+                        this.$parent.showComponent = ''
+                        this.$parent.showMain = !this.$parent.showMain
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

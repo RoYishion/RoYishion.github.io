@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值与v-text</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="noHide">{{message}}</p>
+        <button @click="hide">隐藏</button>
+    </div>
+</body>
+
+<script src="vue.js"></script>
+
+<script>
+    var exercise = new Vue({
+        el: "#app",
+        data: {
+            message: "Today is Wednesday",
+            noHide: true,
+        },
+        methods: {
+            hide() {
+                this.noHide = false
+            }
+        }
+    })
+</script>
+</html>

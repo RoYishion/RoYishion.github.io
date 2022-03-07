@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <div id="searchBar">
+        Search<input type="text" @input="search" list="cars" />
+        <datalist id="cars">
+            <option v-for="item in searchlist" :value="item"></option>
+        </datalist>
+    </div>
+    <simple-grid :data="slist" :columns="gridColumns"></simple-grid>
+</div>
+
+<template id="grid-template">
+    <table>
+        <thead>
+            <tr>
+                <th v-for="col in columns">
+                    {{col}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="entry in data">
+                <td v-for="col in columns">
+                    {{entry[col]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</template>
+
+<script src="vue.js"></script>
+<script>
+    Vue.component('simple-grid', {
+        template: '#grid-template',
+        props: ['data', 'columns']
+    })
+
+    var demo = new Vue({
+        el: '#app',
+        data: {
+            slist: [],
+            searchlist: [],
+            gridColumns: ['name', 'age', 'sex'],
+            gridData: [
+                {
+                    name: 'Jack',
+                    age: '30',
+                    sex: 'Male'
+                },{
+                    name: 'Bill',
+                    age: '26',
+                    sex: 'Male'
+                },{
+                    name: 'Tracy',
+                    age: '22',
+                    sex: 'Female'
+                },{
+                    name: 'Chris',
+                    age: '36',
+                    sex: 'Male'
+                },{
+                    name: 'Mike',
+                    age: '36',
+                    sex: 'Male'
+                }
+            ]
+        },
+        created: function() {
+            console.log(Date.now());
+            this.setSlist(this.gridData);
+        },
+        methods: {
+            setSlist(arr) {
+                this.slist = JSON.parse(JSON.stringify(arr));
+            },
+            search(event) {
+                var v = event.target.value,
+                    self = this;
+                self.searchlist = [];
+                if(v) {
+                    var ss = [];
+                    this.gridData.forEach(function(item){
+                        if(item.name.indexOf(v) > -1){
+                            if(self.searchlist.indexOf(item.name) == -1) {
+                                self.searchlist.push(item.name);
+                            }
+                            ss.push(item);
+                        }
+                        if(item.age.indexOf(v) > -1){
+                            if(self.searchlist.indexOf(item.age) == -1) {
+                                self.searchlist.push(item.age);
+                            }
+                            ss.push(item);
+                        }
+                        if(item.sex.indexOf(v) > -1) {
+                            if(self.searchlist.indexOf(item.sex) == -1) {
+                                self.searchlist.push(item.sex);
+                            }
+                            ss.push(item);
+                        }
+                    });
+                    this.setSlist(ss);
+                } else {
+                    this.setSlist(this.gridData);
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{ height: 100%;}
+        .headerinfo {
+            height: 100px;
+            background-color: #ddd;
+        }
+        .left {
+            width: 20%;
+            height: 100%;
+            float: left;
+            background-color: rgb(231, 208, 208);
+        }
+        .right {
+            width: 80%;
+            height: 100%;
+            float: right;
+            background-color: rgb(200, 250, 202);
+        }
+        .menu {
+            margin: 20px;
+        }
+        .fileDiv {
+            margin: 20px;
+            background-color: rgb(223, 238, 247);
+        }
+    </style>
+</head>
+<body>
+    {% block header %}
+    <div class="headerinfo">
+        头部
+    </div>
+    {% endblock %}
+    <div class="left">
+        {% block left %}{% endblock %}
+    </div>
+    <div class="right">
+        {% block right %}{% endblock %}
+    </div>
+</body>
+</html>

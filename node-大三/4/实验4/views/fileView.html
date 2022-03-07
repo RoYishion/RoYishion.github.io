@@ -1,0 +1,17 @@
+{% extends "homeIndex.html" %}
+{% block right %}
+    <div class="filesDiv">
+        {% if not isRoot %}
+        <a href="/fileView?reqFileUrl={{upPath}}">..返回上一级</a>
+        {% endif %}
+        <ul>
+            {% for file in viewFiles %}
+            {% if file.isDirectory %}
+            <li><a href="/fileView?reqFileUrl={{file.filePath}}">{{file.filename}}</a></li>
+            {% else %}
+            <li>{{file.filename}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

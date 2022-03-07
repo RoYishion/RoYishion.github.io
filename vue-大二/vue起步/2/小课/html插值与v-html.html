@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值与v-text</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <p v-html="html_data"></p>
+    </div>
+</body>
+
+<script src="vue.js"></script>
+
+<script>
+    var exercise = new Vue({
+        el: "#app",
+        data: {
+            html_data: "<h1>这是标题</h1>"
+        }
+    })
+</script>
+</html>

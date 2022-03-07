@@ -1,0 +1,9 @@
+{% extends 'views/layout.html' %}
+
+{% block content %}
+    <h1> {{ title }} </h1>
+    <p> Welcome to {{ title }} </p>
+    <form action="/login" name="user" method="get">
+        <input type="submit" value="去登陆">
+    </form>
+{% endblock %}

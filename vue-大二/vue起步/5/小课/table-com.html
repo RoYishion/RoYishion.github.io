@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            border: 1px solid black;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        td,th{
+            border: thin solid blue;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        #app {
+            width: 800px;
+            margin: 0 auto;
+        }
+        
+        #add-book {
+            width: 150px;
+            margin: 0 auto;
+        }
+
+        tbody tr:hover{
+            background-color:antiquewhite
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app1">
+        <h2>书籍列表</h2>
+        <my-table-component1 
+        v-bind:table-head="bookHead"
+        v-bind:table-body="books"
+        ></my-table-component1>
+    </div>
+    <div id="app2">
+        <h2>地址列表</h2>
+        <my-table-component2 
+        v-bind:table-head="addressHead"
+        v-bind:table-body="address"
+        ></my-table-component2>
+    </div>
+</body>
+<template id="my-table">
+    <div>
+        <table>
+            <thead>
+                <th v-for="(value,key,index) in tableHead">{{value}}</th>
+            </thead>
+            <tbody>
+                <tr v-for="(value1,key1,index1) in tableBody">
+                    <td v-for="(value2,key2,index2) in tableHead">{{value1[key2]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+<script>
+    var myTableComponent = Vue.extend({
+        template:'#my-table',
+        props:['tableHead','tableBody']
+    })
+    var vm1 = new Vue({
+        el: '#app1',
+        data: {
+            bookHead: {author:'作者', name:'书名', price:'价格', publishDate:'出版日期'},
+            // 后台调用，服务器请求来的数据
+            books: [{
+                id: 1,
+                author: '曹雪芹',
+                name: '红楼梦',
+                price: 32.0,
+                publishDate:'1300-01-01'
+            }, {
+                id: 2,
+                author: '施耐庵',
+                name: '水浒传',
+                price: 30.0,
+                publishDate:'1900-01-01'
+            }, {
+                id: '3',
+                author: '罗贯中',
+                name: '三国演义',
+                price: 24.0,
+                publishDate:'1700-01-01'
+            }, {
+                id: 4,
+                author: '吴承恩',
+                name: '西游记',
+                price: 20.0,
+                publishDate:'1500-01-01'
+            }]
+        },
+        components:{
+            'my-table-component1':myTableComponent
+        }
+        
+    })
+
+    var vm2 = new Vue({
+        el: '#app2',
+        data: {
+            addressHead: {author:'收货人', address:'地址', phone:'电话'},
+            address: [{
+                id: 1,
+                author: '曹雪芹',
+                address: '广东省广州市从化区经济开发区高技术产业园广从南路548号',
+                phone: '138123456'
+            }, {
+                id: 2,
+                author: '施耐庵',
+                address: '广东省广州市从化区经济开发区高技术产业园广从南路548号',
+                phone: '138123456'
+            }, {
+                id: 3,
+                author: '罗贯中',
+                address: '广东省广州市从化区经济开发区高技术产业园广从南路548号',
+                phone: '138123456'
+            }, {
+                id: 4,
+                author: '吴承恩',
+                address: '广东省广州市从化区经济开发区高技术产业园广从南路548号',
+                phone: '138123456'
+            }]
+        },
+        components:{
+            'my-table-component2':myTableComponent
+        }
+        
+    })
+</script>
+
+</html>
