@@ -1,0 +1,5 @@
+<view>
+    请输入新的用户名：<textarea model:value="{{userForm.username}}" name="input" auto-height="true" maxlength="-1" bindinput="getUserName"></textarea>
+    请输入新的手机号：<textarea model:value="{{userForm.phone}}" name="input" auto-height="true" maxlength="-1" bindinput="getPhone"></textarea>
+    <button class="btn" bindtap="edit">确定</button>
+</view>

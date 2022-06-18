@@ -15,13 +15,13 @@ const addressList = [
 ]
 
 // 获取用户地址
-const getUserAddress = function(req) {
+const getUserAddress = function (req) {
     console.log(req)
-    const {userId} = mUtils.param2Obj(req.url)
+    const { userId } = mUtils.param2Obj(req.url)
     let resData = null;
     let userAddressList = []
-    for(let i = 0; i < addressList.length; i++) {
-        if(userId == addressList[i].userId) {
+    for (let i = 0; i < addressList.length; i++) {
+        if (userId == addressList[i].userId) {
             userAddressList.push(addressList[i])
         }
     }
@@ -39,17 +39,17 @@ const getUserAddress = function(req) {
 };
 
 // 删除地址
-const deleteAddress = function(req) {
-    const {addressId} = mUtils.param2Obj(req.url) //  将地址参数转为对象
+const deleteAddress = function (req) {
+    const { addressId } = mUtils.param2Obj(req.url) //  将地址参数转为对象
     let resData = null;
     let checkBook = false;
     addressList.forEach((address, index) => {
-        if(address.addressId == addressId) {
+        if (address.addressId == addressId) {
             addressList.splice(index, 1)
             checkBook = true
         }
     })
-    if(checkBook) {
+    if (checkBook) {
         resData = {
             success: true,
             data: {},
@@ -72,7 +72,7 @@ const deleteAddress = function(req) {
 }
 
 // 编辑地址
-const editAddress = function(req) {
+const editAddress = function (req) {
     let resData = null;
     const {
         addressId,
@@ -91,9 +91,9 @@ const editAddress = function(req) {
             msg: '信息不完整，修改失败'
         }
     }
-    if(addressId) {
-        for(let i = 0; i < addressList.length; i++) {
-            if(addressList[i].addressId == addressId) {
+    if (addressId) {
+        for (let i = 0; i < addressList.length; i++) {
+            if (addressList[i].addressId == addressId) {
                 addressList[i].phone = phone;
                 addressList[i].name = name;
                 addressList[i].province = province;
@@ -115,7 +115,7 @@ const editAddress = function(req) {
 }
 
 // 新增地址
-const addAddress = function(req) {
+const addAddress = function (req) {
     let resData = null;
     let addObj = {};
     const {
@@ -126,11 +126,11 @@ const addAddress = function(req) {
         city,
         address,
         zip
-    } = JSON. parse(req.body)
-    if(userId) {
+    } = JSON.parse(req.body)
+    if (userId) {
         // 以时间作为唯一id
         addObj.addressId = Number(Date.now());
-        addObj.userId = userId ;
+        addObj.userId = userId;
         addObj.phone = phone;
         addObj.name = name;
         addObj.province = province;
@@ -143,7 +143,7 @@ const addAddress = function(req) {
             data: {},
             err: {
                 code: 0,
-                msg:'添加成功'
+                msg: '添加成功'
             }
         }
     } else {
@@ -161,7 +161,7 @@ const addAddress = function(req) {
 
 Mock.mock(RegExp(`${BASE_URL}/user/address` + '.*'), 'get', getUserAddress)
 Mock.mock(RegExp(`${BASE_URL}/user/address` + '.*'), 'delete', deleteAddress)
-Mock.mock(`${BASE_URL}/user/address`, 'put' , editAddress)
+Mock.mock(`${BASE_URL}/user/address`, 'put', editAddress)
 Mock.mock(`${BASE_URL}/user/address`, 'post', addAddress)
 // 拦截的地址，拦截的请求类型，执行函数并返回
 // RegExp 对象表示正则表达式，用来对字符串执行模式匹配

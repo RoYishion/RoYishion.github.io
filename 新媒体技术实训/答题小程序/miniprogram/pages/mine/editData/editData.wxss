@@ -1,0 +1,47 @@
+/* pages/mine/editData/editData.wxss */
+.item-box {
+    width: 700rpx;
+    margin: 0 auto;
+    padding: 20rpx 0;
+}
+
+.items {
+    width: 100%;
+}
+
+.item {
+    position: relative;
+    border-top: 2rpx solid #eee;
+    height: 115rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+}
+
+.inner.txt {
+    background-color: #fff;
+    width: 100%;
+    z-index: 5;
+    padding: 0 10rpx;
+    transition: left 0.2s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    background-color: #f6502a;
+    text-align: center;
+    width: 650rpx;
+    height: 90rpx;
+    border: none;
+    border-radius: 50rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+    line-height: 90rpx;
+    margin: 32rpx auto;
+    top: 100px;
+    margin-top: 0rpx;
+    position: relative;
+    color: #ffffff;
+    border: 2px solid #000;
+}

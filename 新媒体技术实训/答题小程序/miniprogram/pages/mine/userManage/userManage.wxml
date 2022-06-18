@@ -1,0 +1,44 @@
+<view class="table">
+    <view class="tr bg-w">
+        <view class="th">用户id</view>
+        <view class="th">姓名</view>
+        <view class="th">手机号</view>
+        <view class="th">角色</view>
+        <view class="th">操作</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="code">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+            <view class="td">{{item.id}}</view>
+            <view data-item="{{item.username}}" class="td">{{item.username}}</view>
+            <view data-item="{{item.phone}}" class="td">{{item.phone}}</view>
+            <view data-item="{{item.role.rolename}}" class="td">{{item.role.rolename}}</view>
+            <view class="td">
+                <image data-id="{{item.id}}" data-username="{{item.username}}" data-phone="{{item.phone}}" data-rolename="{{item.rolename}}" data-role_id="{{item.role_id}}" class="image" src="../../../images/edit.png" bindtap="editUser"></image>
+                <image data-id="{{item.id}}" class="image" src="../../../images/delete.png" bindtap="deleteUser"></image>
+            </view>
+        </view>
+        <view class="tr" wx:else>
+            <view class="td">{{item.id}}</view>
+            <view data-item="{{item.username}}" class="td">{{item.username}}</view>
+            <view data-item="{{item.phone}}" class="td">{{item.phone}}</view>
+            <view data-item="{{item.role.rolename}}" class="td">{{item.role.rolename}}</view>
+            <view class="td">
+                <image data-id="{{item.id}}" data-username="{{item.username}}" data-phone="{{item.phone}}" data-rolename="{{item.rolename}}" data-role_id="{{item.role_id}}" class="image" src="../../../images/edit.png" bindtap="editUser"></image>
+                <image data-id="{{item.id}}" class="image" src="../../../images/delete.png" bindtap="deleteUser"></image>
+            </view>
+        </view>
+    </block>
+</view>
+<view>
+    <image class="image2" src="../../../images/add.png" bindtap="add"></image>
+</view>
+
+<van-dialog class="box" show-cancel-button use-slot show="{{inputModel}}" width="80%" bind:close="handlestoreCodeNo" bind:confirm="handlestoreCodeOK">
+    <input placeholder="请输入用户名" type="text" bindinput="getUserName" model:value="{{userForm.username}}" id="input">{{userForm.username}}</input>
+    <input placeholder="请输入手机号" type="text" bindinput="getPhone" model:value="{{userForm.phone}}" id="input">{{userForm.phone}}</input>
+
+    <van-cell title="请选择角色" bind:click="showPopup" arrow-direction="down" />
+    <van-popup show="{{ show }}" position="bottom" custom-style="height: 100%;" bind:close="onClose">
+        <van-picker show-toolbar="true" columns="{{ roleOptions }}" value-key="rolename" bind:confirm="onConfirm" bind:cancel="onCancel" />
+    </van-popup>
+</van-dialog>

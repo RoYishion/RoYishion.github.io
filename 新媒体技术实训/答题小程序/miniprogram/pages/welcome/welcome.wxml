@@ -1,0 +1,16 @@
+<view class="container">
+    <view bindtap="register">
+        <text bindtap="register" class="register">注册</text>
+    </view>
+    <view class="login_box">
+        <view class="section">
+            <input placeholder="请输入手机号" placeholder-class="color" bindinput='getphone' />
+            <image src="../../images/username.png"></image>
+        </view>
+        <view class="section">
+            <input password='true' placeholder="请输入密码" placeholder-class="color" bindinput='getpassword' />
+            <image src="../../images/pass.png"></image>
+        </view>
+        <button class="btn" bindtap="login">登录</button>
+    </view>
+</view>

@@ -11,7 +11,7 @@ const header = {};
 
 // 获取所有角色列表
 export async function getAllRoles(params) {
-  return http.post(`${GETALLROLES}`, params, header);
+  return http.get(`${GETALLROLES}`, params, header);
 }
 
 // 新增角色

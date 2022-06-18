@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="login_box">
+        <view class="section">
+            <input placeholder="请输入用户名" placeholder-class="color" bindinput='getusername' />
+            <image src="../../../images/username.png"></image>
+        </view>
+        <view class="section">
+            <input placeholder="请输入手机号" placeholder-class="color" bindinput='getphone' />
+            <image src="../../../images/username.png"></image>
+        </view>
+        <view class="section">
+            <input password='true' placeholder="请输入密码" placeholder-class="color" bindinput='getpassword1' />
+            <image src="../../../images/pass.png"></image>
+        </view>
+        <view class="section">
+            <input password='true' placeholder="请再次输入密码" placeholder-class="color" bindinput='getpassword2' />
+            <image src="../../../images/pass.png"></image>
+        </view>
+        <button class="btn" bindtap="register">注册</button>
+    </view>
+</view>

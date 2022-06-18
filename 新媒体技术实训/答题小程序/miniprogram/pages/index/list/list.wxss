@@ -1,0 +1,69 @@
+/* pages/index/list/list.wxss */
+.item-box {
+    width: 700rpx;
+    margin: 0 auto;
+    padding: 20rpx 0;
+}
+
+.items {
+    width: 100%;
+}
+
+.item {
+    position: relative;
+    border-top: 2rpx solid #eee;
+    height: 115rpx;
+    line-height: 115rpx;
+    overflow: hidden;
+}
+
+.inner.txt {
+    background-color: #fff;
+    width: 100%;
+    z-index: 5;
+    padding: 0 10rpx;
+    transition: left 0.2s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-icon {
+    width: 64rpx;
+    height: 64rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+    margin-left: 13px;
+    border-radius: 50%;
+}
+
+.item-data {
+    float: right;
+    margin-right: 5%;
+}
+
+.rankpace {
+    color: #fa7e04;
+}
+
+.inner.del {
+    background-color: #f6502a;
+    width: 180rpx;
+    text-align: center;
+    z-index: 4;
+    right: 0;
+    color: #fff;
+}
+
+view {
+    box-sizing: border-box;
+}
+
+.item:last-child {
+    border-bottom: 2rpx solid #eee;
+}
+
+.inner {
+    position: absolute;
+    top: 0;
+}

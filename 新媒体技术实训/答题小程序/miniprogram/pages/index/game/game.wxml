@@ -1,0 +1,33 @@
+<view>
+    <view class="score">时间:{{time}}</view>
+
+    <view class="gametop">
+        <view class="questionnum-title">第 {{questionnum+1}} 题</view>
+    </view>
+
+    <view>
+        <view class="question">{{question}}</view>
+    </view>
+
+    <input class="answer" value="{{answer}}" bindinput="listenerUserInput" placeholder='请输入答案' />
+
+    <button bindtap="check" class="comfrimBtn">确定</button>
+</view>
+
+<view wx:if="{{showresult == 1}}" class="box">
+    <view class="result">
+        <view class="resultimg">
+            <image class="img" src="/images/correct.png"></image>
+        </view>
+        <view bind:tap="comfirm" class="comfrimBtn">确定</view>
+    </view>
+</view>
+
+<view wx:if="{{showresult == 2}}" class="box">
+    <view class="result">
+        <view class="resultimg">
+            <image class="img" src="/images/wrong.png"></image>
+        </view>
+        <view bind:tap="comfirm" class="comfrimBtn">确定</view>
+    </view>
+</view>

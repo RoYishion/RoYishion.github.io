@@ -1,0 +1,64 @@
+.containerMine {
+  background-color: #f4f5f6;
+}
+
+.wrapper {
+  background-color: #7f9bef;
+  height: 30vh;
+  position: relative;
+}
+
+.wrapper .Info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100rpx;
+  width: 200rpx;
+  border-radius: 50% 50%;
+}
+
+.username {
+  width: 200rpx;
+  margin-top: -30%;
+  text-align: center;
+  font-size: 40rpx;
+}
+
+.rolename {
+  width: 200rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.wrapper button {
+  width: 400rpx;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20rpx;
+}
+
+.list {
+  margin-top: 20rpx;
+}
+
+.list .item {
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ffffff;
+  padding: 0 20rpx;
+  border: 2rpx solid #f6f6f6;
+}
+
+.btn {
+  background-color: #f6502a;
+  text-align: center;
+  border: none;
+  font-weight: bold;
+  margin: 32rpx auto;
+  color: #ffffff;
+}

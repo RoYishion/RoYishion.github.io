@@ -1,0 +1,13 @@
+<view class="item-box">
+    <view class="items">
+        <view wx:for="{{list}}" wx:key="index" class="item">
+            <view class='inner txt'>
+                <image class="item-icon" mode="widthFix" src="{{icon}}"></image>
+                <i>{{item.username}}</i>
+                <span class="item-data">
+                    <i class="rankpace">{{item.score}}秒</i>
+                </span>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,17 @@
+<view class="game">
+    <view class="gamebox">
+        <image class="gameavatar" src="../../images/math.png"></image>
+        <text bind:tap="rulesshowbox" class="gamerules">规则</text>
+        <view class="gamename">数学题抢答</view>
+    </view>
+    <view bind:tap="mathgame" class="btn">开始答题</view>
+    <view bind:tap="list" class="btn">排行榜</view>
+</view>
+<view wx:if="{{rules}}" class="rulesbox">
+    <view bind:tap="closerulesbox" class="closerulesbox"></view>
+    <view class="gamerules">
+        <view class="rulesboxtitle">规则</view>
+        <view class="gamecon">对屏幕上出现的题目进行作答，系统会记录答对所有题目所用的时间。</view>
+        <view bind:tap="closerulesbox" class="rulesclose">我知道了</view>
+    </view>
+</view>

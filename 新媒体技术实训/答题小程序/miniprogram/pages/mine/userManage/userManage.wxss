@@ -1,0 +1,63 @@
+/* pages/mine/userManage/userManage.wxss */
+.table {
+    border: 0px solid darkgray;
+}
+
+.box {
+    height: 100rpx;
+    text-align: center;
+    padding: 20rpx;
+    margin-top: 10%;
+}
+
+.tr {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+}
+
+.td {
+    width: 20%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.bg-w {
+    background: snow;
+}
+
+.bg-g {
+    background: #E6F3F9;
+}
+
+.th {
+    width: 40%;
+    justify-content: center;
+    background: #7f9bef;
+    color: #fff;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+}
+
+.image {
+    width: 60rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+    margin-left: 13px;
+}
+
+.image2 {
+    width: 75rpx;
+    height: 75rpx;
+    vertical-align: middle;
+    margin-left: 13px;
+}
+
+#input {
+    margin: 90rpx 0
+}

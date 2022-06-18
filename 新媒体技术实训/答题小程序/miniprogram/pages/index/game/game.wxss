@@ -1,0 +1,152 @@
+/* pages/index/game/game.wxss */
+page {
+    background: #7f9bef;
+    color: white;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.label {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.gametop {
+    text-align: center;
+    position: relative;
+    margin: 30rpx 0;
+}
+
+.questionnum-title {
+    font-weight: bold;
+    background-color: #ff847b;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    width: 180rpx;
+    margin: 0 auto;
+    padding: 5rpx;
+    position: relative;
+    top: 30rpx;
+    border: 2rpx dashed #fff;
+}
+
+.gametop .gameright {
+    float: right;
+    min-width: 150rpx;
+    background-color: #fff;
+    height: 50rpx;
+    border: 3rpx solid #717171;
+    border-radius: 50rpx;
+    margin-top: -40rpx;
+    color: #FF5722;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    padding: 10rpx 10rpx 10rpx;
+    position: relative;
+    top: -6rpx;
+}
+
+.gametop .gameright .img {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 5rpx 5rpx 0 10rpx;
+}
+
+.question {
+    padding: 30rpx 20rpx;
+    font-size: 36rpx;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    min-height: 150rpx;
+    border: 3rpx dashed #ffffff;
+    border-radius: 20rpx;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answer {
+    padding: 30rpx 20rpx;
+    font-size: 40rpx;
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+    border: 3rpx dashed #ffffff;
+    border-radius: 20rpx;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+
+.box .result {
+    width: 500rpx;
+    height: 500rpx;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin-top: -250rpx;
+    margin-left: -250rpx;
+    position: relative;
+    left: 50%;
+    top: 40%;
+    border-radius: 20rpx;
+    color: #000;
+    z-index: 100;
+}
+
+.comfrimBtn {
+    width: 380rpx;
+    height: 70rpx;
+    background-color: #f6502a;
+    color: #fff;
+    text-align: center;
+    border-radius: 30rpx;
+    line-height: 70rpx;
+    margin: 15rpx auto;
+}
+
+.result .resultimg {
+    margin: 100rpx auto 0rpx;
+}
+
+.result .img {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.result {
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.score {
+    width: 200rpx;
+    height: 50rpx;
+    text-align: center;
+    display: block;
+    background-color: #fff;
+    border-radius: 20px;
+    color: #000;
+    font-size: 26rpx;
+    font-weight: bold;
+    line-height: 50rpx;
+    border: 4rpx solid #000;
+    position: absolute;
+    left: 4%;
+    top: 2%;
+}

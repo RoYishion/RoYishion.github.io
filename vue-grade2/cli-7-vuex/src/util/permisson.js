@@ -1,6 +1,6 @@
 import router from "@/router";
-import {Message} from "element-ui";
-import {getToken} from "@/util/auth";
+import { Message } from "element-ui";
+import { getToken } from "@/util/auth";
 import store from "@/store";
 
 function hasPermission(roles, permissionRoles) {

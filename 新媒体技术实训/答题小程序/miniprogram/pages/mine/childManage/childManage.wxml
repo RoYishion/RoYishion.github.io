@@ -1,0 +1,19 @@
+<view class="item-box">
+    <view wx:for="{{list}}" wx:key="id" class="item">
+        <view class='inner txt'>
+            <image class="item-icon" mode="widthFix" src="{{icon}}"></image>
+            <text>{{item.username}}</text>
+            <view class="item-data">
+                <text class="rankpace">{{item.score}}秒</text>
+            </view>
+        </view>
+    </view>
+    <view>
+        <image class="image" src="../../../images/add.png" bindtap="add"></image>
+    </view>
+</view>
+
+<van-dialog class="box" show-cancel-button use-slot show="{{inputModel}}" width="80%" bind:close="handlestoreCodeNo" bind:confirm="handlestoreCodeOK">
+    <input placeholder="请输入手机号" type="text" bindinput="getPhone" id="input"></input>
+    <input placeholder="请输入密码" type="text" bindinput="getPassword" id="input"></input>
+</van-dialog>

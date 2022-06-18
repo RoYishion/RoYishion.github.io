@@ -1,0 +1,41 @@
+<view class="containerMine">
+  <view class="wrapper">
+    <view class="Info" wx:if="{{hasUserInfo}}">
+      <view class="username">{{userInfo.username}}</view>
+      <view class="rolename">{{userInfo.role.rolename}}</view>
+      <view><button class="btn" bindtap="logout">退出登录</button></view>
+    </view>
+    <view wx:else><button bindtap="login">点击登录</button></view>
+  </view>
+
+  <view class="list" wx:if="{{show == 1}}">
+    <view class="item" wx:for="{{funcInfo1}}" wx:key="index" bindtap="userManage" data-type="{{item}}">
+      <view class="func">{{item}}</view>
+      <view class="icon">></view>
+    </view>
+  </view>
+  <view class="list" wx:if="{{show == 1}}">
+    <view class="item" wx:for="{{funcInfo2}}" wx:key="index" bindtap="roleManage" data-type="{{item}}">
+      <view class="func">{{item}}</view>
+      <view class="icon">></view>
+    </view>
+  </view>
+  <view class="list" wx:if="{{show == 1}}">
+    <view class="item" wx:for="{{funcInfo3}}" wx:key="index" bindtap="scoreManage" data-type="{{item}}">
+      <view class="func">{{item}}</view>
+      <view class="icon">></view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{funcInfo4}}" wx:key="index" bindtap="editData" data-type="{{item}}">
+      <view class="func">{{item}}</view>
+      <view class="icon">></view>
+    </view>
+  </view>
+  <view class="list" wx:if="{{show == 2}}">
+    <view class="item" wx:for="{{funcInfo5}}" wx:key="index" bindtap="childManage" data-type="{{item}}">
+      <view class="func">{{item}}</view>
+      <view class="icon">></view>
+    </view>
+  </view>
+</view>

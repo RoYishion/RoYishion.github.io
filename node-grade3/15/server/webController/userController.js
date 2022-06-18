@@ -42,7 +42,7 @@ module.exports = {
   // 增
   saveUser: async (ctx, next) => {
     let saveUser = await userService.saveUser(ctx.request.body);
-    if(saveUser.success) {
+    if (saveUser.success) {
       ctx.body = {
         success: true,
         err: { code: 1, msg: saveUser.info },
@@ -59,7 +59,7 @@ module.exports = {
   // 删
   deleteUser: async (ctx, next) => {
     let deleteUser = await userDao.deleteUser(ctx.params.id);
-    if(deleteUser) {
+    if (deleteUser) {
       ctx.body = {
         success: true,
         err: { code: 1, msg: '删除用户成功' },
@@ -76,7 +76,7 @@ module.exports = {
   // 改
   updateUser: async (ctx, next) => {
     let updateUser = await userService.updateUser(ctx.request.body);
-    if(updateUser.success) {
+    if (updateUser.success) {
       ctx.body = {
         success: true,
         err: { code: 1, msg: updateUser.info },
@@ -109,10 +109,12 @@ module.exports = {
   },
 
   loginGetToken: async (ctx, next) => {
+    console.log(ctx.request.body);
     const phone = ctx.request.body.phone;
     const password = ctx.request.body.password;
     if (phone && password) {
       let user = await indexService.checkLogin(phone, password);
+      console.log(user);
       if (user) {
         let payload = { userid: user.id };
         let token = encryption.getUserToken(payload);
@@ -123,7 +125,7 @@ module.exports = {
               code: 1,
               msg: '获取认证成功'
             },
-            data: { token: 'Bearer ' + token }
+            data: { token: 'Bearer ' + token, user }
           };
         } else {
           ctx.body = {

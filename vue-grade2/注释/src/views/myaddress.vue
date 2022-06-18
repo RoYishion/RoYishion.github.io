@@ -107,14 +107,15 @@ import Cookies from "js-cookie";
 export default {
   data() {
     return {
-      tableData: [],//表格数据
+      tableData: [], //表格数据
       loading: true,
       formLabelWidth: "100px",
       showAddress: false,
       editLoading: false,
       showTitle: "",
-      confirmType: "",//判断是修改还是新增
-      addressForm: {//地址信息
+      confirmType: "", //判断是修改还是新增
+      addressForm: {
+        //地址信息
         addressId: "",
         userId: "",
         phone: "",
@@ -124,7 +125,8 @@ export default {
         address: "",
         zip: "",
       },
-      rules: {//表单校验规则
+      rules: {
+        //表单校验规则
         phone: [
           { required: true, message: "联系电话不能为空", trigger: "blur" },
           { len: 11, message: "手机号应为11位", trigger: "blur" },
@@ -144,10 +146,12 @@ export default {
 
   methods: {
     // 删除地址
-    deleteAddress(addressId, index, rows) {//传入参数，根据id和index删除当前行
+    deleteAddress(addressId, index, rows) {
+      //传入参数，根据id和index删除当前行
       this.loading = true;
       deleteUserAddress({ addressId: addressId }).then((res) => {
-        if (res.success) {//根据返回信息做出相应提示
+        if (res.success) {
+          //根据返回信息做出相应提示
           this.$message.info(res.err.msg);
           rows.splice(index, 1);
           this.loading = false;
@@ -165,7 +169,8 @@ export default {
         .catch((_) => {});
     },
     // 编辑地址
-    editAddress(addressItem) {//编辑地址，将当前地址信息显示在弹窗中
+    editAddress(addressItem) {
+      //编辑地址，将当前地址信息显示在弹窗中
       this.showTitle = "编辑地址";
       this.showAddress = true;
       this.addressForm.addressId = addressItem.addressId;
@@ -178,7 +183,8 @@ export default {
       this.confirmType = 2;
     },
     // 添加地址，清除添加地址form表单中的信息
-    addAddress() {//打开弹窗，清空信息
+    addAddress() {
+      //打开弹窗，清空信息
       this.showTitle = "新增地址";
       this.showAddress = true;
       let userId = Cookies.get("userId");
@@ -193,15 +199,18 @@ export default {
       this.confirmType = 1;
     },
     // 确认提交
-    confirmAddress() {//获取到地址信息，提交添加地址表单
-      this.$refs["forms"].validate((valid) => {//表单校验是否符合规则
+    confirmAddress() {
+      //获取到地址信息，提交添加地址表单
+      this.$refs["forms"].validate((valid) => {
+        //表单校验是否符合规则
         if (valid) {
           console.log("确认提交地址");
           this.editLoading = true;
-          let userId = Cookies.get("userId");//获取cookie中userId
+          let userId = Cookies.get("userId"); //获取cookie中userId
           if (this.confirmType == 1) {
             // 提交新增地址
-            addAddress(this.addressForm).then((res) => {//提交新增地址接口调用，返回mock数据
+            addAddress(this.addressForm).then((res) => {
+              //提交新增地址接口调用，返回mock数据
               this.editLoading = false;
               this.showAddress = false;
               if (res.success) {
@@ -215,9 +224,11 @@ export default {
                 this.$message.error(res.err.msg);
               }
             });
-          } else if (this.confirmType == 2) {//编辑地址
+          } else if (this.confirmType == 2) {
+            //编辑地址
             // 提交编辑地址
-            editAddress(this.addressForm).then((res) => {//调用编辑地址接口，将地址参数传入该函数
+            editAddress(this.addressForm).then((res) => {
+              //调用编辑地址接口，将地址参数传入该函数
               this.editLoading = false;
               this.showAddress = false;
               if (res.success) {
@@ -238,9 +249,10 @@ export default {
       });
     },
   },
-  mounted: function() {
-    let userId = Cookies.get("userId");//获取当前cookie中userId
-    getUserAddress({ userId: userId }).then((res) => {//调用获取地址列表信息接口
+  mounted: function () {
+    let userId = Cookies.get("userId"); //获取当前cookie中userId
+    getUserAddress({ userId: userId }).then((res) => {
+      //调用获取地址列表信息接口
       this.tableData = res.data.userAddressList;
       this.loading = false;
     });
