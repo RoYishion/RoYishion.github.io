@@ -1,0 +1,94 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.figure {
+  width: 900px;
+  height: 500px;
+  margin: 0 auto;
+  padding: 30px 0;
+  background-color: #ffffff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.figure-line {
+  width: 700px;
+  height: 420px;
+  float: left;
+  border: 1px solid #c0c0c0;
+  border-right: 0;
+  position: relative;
+}
+
+.figure-left {
+  width: 100px;
+  height: 420px;
+  float: left;
+}
+
+.figure-left ul {
+  margin-top: 30px;
+}
+
+.figure-left ul li {
+  height: 60px;
+  text-align: right;
+  line-height: 60px;
+  padding: 0 5px;
+}
+
+.figure-line ul.fr li {
+  border-top: 1px solid #c0c0c0;
+  height: 60px;
+}
+
+.figure-line ul.fr li:first-child {
+  border: 0;
+}
+
+.figure-line ul.ls {
+  width: 700px;
+  height: 420px;
+  position: absolute;
+  bottom: -1px;
+}
+
+.figure-line ul.ls li {
+  float: left;
+  display: block;
+  width: 60px;
+  margin: 0 20px;
+  background-color: blue;
+  position: relative;
+  bottom: 0;
+}
+
+.figure-line ul.ls li span {
+  width: 60px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: -20px;
+}
+
+.figure-bottom {
+  clear: left;
+  float: left;
+  width: 700px;
+  margin-left: 100px;
+}
+
+.figure-bottom ul li {
+  display: inline-block;
+  width: 95px;
+  text-align: center;
+  ;
+  position: relative;
+}

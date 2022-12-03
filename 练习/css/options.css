@@ -1,0 +1,40 @@
+nav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2em;
+}
+
+a {
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+  transition: color .3s ease;
+}
+
+a::after {
+  --scale: 0;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 3px;
+  background: gray;
+  -webkit-transform: scaleX(var(--scale));
+  transform: scaleX(var(--scale));
+  -webkit-transform-origin: var(--x) 50%;
+  transform-origin: var(--x) 50%;
+  transition: -webkit-transform 0.3s cubic-bezier(0.535, 0.05, 0.355, 1);
+  transition: transform 0.3s cubic-bezier(0.535, 0.05, 0.355, 1);
+  transition: transform 0.3s cubic-bezier(0.535, 0.05, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.535, 0.05, 0.355, 1);
+}
+
+a:hover {
+  color: gray;
+}
+
+a:hover::after {
+  --scale: 1;
+}

@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 12px "微软雅黑", "Arial Narrow", HELVETICA;
+  background-color: #f5f8f9;
+}
+
+img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#main {
+  width: 100%;
+  background: #ffffff;
+  height: 120px;
+}
+
+#blank {
+  height: 120px;
+  clear: both;
+}
+
+#main .header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#main .header .logo {
+  width: 100px;
+  padding-top: 40px;
+}
+
+#main .header .logout {
+  width: 400px;
+  margin-top: 40px;
+}
+
+#main .header .logout img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+#middle {
+  margin: auto;
+  width: 1500px;
+}
+
+#middle .textbox {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#middle .m_text {
+  width: 50%;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 5px;
+  margin-left: 0;
+}
+
+#middle .m-options {
+  margin-right: -180px;
+}
+
+#middle .m_show {
+  width: 1500px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#middle table{
+  padding-top: 30px;
+}
+
+#middle .text-under td{
+  font-size: 20px;
+  display: inline-block;
+  width: 220px;
+  height: 60px;
+}
+
+canvas{
+  background-color: white;
+}
+
+.dataimg {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.lineimg {
+  width: 100%;
+  height: 400px;
+}
+
+.datapieimg {
+  margin: 5px;
+  background-color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.datacolumnimg {
+  margin: 5px;
+  background-color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+#footer {
+  width: 100%;
+  height: 200px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer .logo {
+  padding-top: 80px;
+  padding-left: 150px;
+}
+
+#footer .text {
+  padding-top: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+#footer .text table{
+  width: 1500px;
+}
+
+#footer .text td{
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+}

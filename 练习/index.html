@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="css/base.css" type="text/css" rel="stylesheet" />
+	<link href="css/lunbotu.css" type="text/css" rel="stylesheet" />
+	<link href="css/options.css" type="text/css" rel="stylesheet" />
+	<link href="css/support.css" type="text/css" rel="stylesheet" />
+	<link href="css/column.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div id="main">
+		<div class="header">
+			<div class="logo">
+				<img src="images/logo.jpg" />
+			</div>
+
+			<div class="logout">
+				<img src="images/settings.jpg" />
+				<img src="images/bell.jpg" />
+				<img src="images/log out.jpg" />
+			</div>
+		</div>
+	</div>
+
+	<div id="blank"></div>
+
+	<div id="middle">
+		<div class="textbox">
+
+			<div class="m_text">
+				<h2>Audience Overview</h2>
+				<p>Roseville, CA</p>
+			</div>
+
+			<div class="m-options">
+				<nav>
+					<a href="#">DASHBOARD</a>
+					<a href="#">PROJECTS</a>
+					<a href="#">CALENDAR</a>
+					<a href="#">MAINLBOX</a>
+					<a href="#">SETTINGS</a>
+				</nav>
+			</div>
+		</div>
+
+		<div id="blank"></div>
+
+		<div class="m_show">
+			<div class="container">
+				<div class="carousel">
+					<img id="img" src="./images/轮播图1.jpg" alt="">
+					<img id="img" src="./images/轮播图2.jpg" alt="">
+					<img id="img" src="./images/轮播图1.jpg" alt="">
+					<img id="img" src="./images/轮播图2.jpg" alt="">
+					<img id="img" src="./images/轮播图1.jpg" alt="">
+					<img id="img" src="./images/轮播图1.jpg" alt="">
+				</div>
+				<div id="tag">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+
+			<div class="support">
+				<div class="text-on">
+					<div>Support Request</div>
+					<button class="btn">View All</button>
+				</div>
+
+				<hr>
+
+				<table class="text-under">
+					<tr>
+						<td>TIME</td>
+						<td>USER NAME</td>
+						<td>STATUS</td>
+					</tr>
+					<tr>
+						<td>9:45pm</td>
+						<td>info@design.com</td>
+						<td><button class="btn">Solved</button></td>
+					</tr>
+					<tr>
+						<td>9:45pm</td>
+						<td>info@design.com</td>
+						<td><button class="btn">Solved</button></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+		<div id="blank"></div>
+
+		<div class="lineimg">
+			<canvas id="canvas1" width="1500" height="400"></canvas>
+		</div>
+
+		<div id="blank"></div>
+
+		<div class="dataimg">
+			<div class="datapieimg">
+				<div>饼状图数据展示</div>
+				<canvas id="canvas2" width="650" height="400"></canvas>
+			</div>
+
+			<div class="datacolumnimg">
+				<div class="figure">
+					<div>柱状图数据展示</div>
+					<div class="figure-left">
+						<ul id="leftUl">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<div class="figure-line">
+						<ul class="fr">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<ul class="ls" id="midUl">
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+						</ul>
+					</div>
+					<div class="figure-bottom">
+						<ul id="bottomUl">
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+							<li><span></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="blank"></div>
+
+	<div id="footer">
+		<div class="logo">
+			<img src="images/logo.jpg" />
+		</div>
+
+		<div class="text">
+			<table>
+				<tr>
+					<td>news</td>
+					<td>Sport</td>
+					<td>weather</td>
+					<td>future</td>
+					<td>weather</td>
+					<td>travel</td>
+				</tr>
+				<tr>
+					<td>channels</td>
+					<td>Culture</td>
+					<td>autos</td>
+					<td>food</td>
+					<td>radio</td>
+				</tr>
+				<tr>
+					<td>overview</td>
+					<td>Nature</td>
+					<td>shop</td>
+					<td>earth</td>
+				</tr>
+				<tr>
+					<td>timeline</td>
+					<td>Music</td>
+					<td>local</td>
+					<td>tv</td>
+
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+<script src="js/pie.js" type="text/javascript" language="javascript"></script>
+<script src="js/lunbotu.js" type="text/javascript" language="javascript"></script>
+<script src="js/column.js" type="text/javascript" language="javascript"></script>
+<script src="js/lineimg.js" type="text/javascript" language="javascript"></script>
+<script src="js/options.js" type="text/javascript" language="javascript"></script>
+
+</html>

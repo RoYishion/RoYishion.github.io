@@ -1,0 +1,41 @@
+#middle .container {
+  width: 760px;
+  height: 376px;
+  position: relative;
+  overflow: hidden;
+}
+
+#middle .carousel {
+  position: absolute;
+  width: 1800px;
+  height: 376px;
+}
+
+#middle .carousel img {
+  width: 759px;
+  height: 376px;
+  margin-left: 5px;
+}
+
+#middle #tag {
+  width: 180px;
+  height: 30px;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#middle #tag div {
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  background-color: gray;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#middle #tag div:hover {
+  background-color: black;
+}
