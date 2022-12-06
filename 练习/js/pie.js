@@ -71,11 +71,24 @@ window.onload = (function () {
     });
     return data;
   };
+
+  var i = 0;
+  function circlearray() {
+    i++;
+  }
   PieChart.prototype.randomColor = function () {
-    var r = Math.floor(Math.random() * 255 + 1);
-    var g = Math.floor(Math.random() * 255 + 1);
-    var b = Math.floor(Math.random() * 255 + 1);
-    return 'rgb(' + r + ',' + g + ',' + b + ')';
+    var rgb = [
+      'rgb(192, 54, 53)',
+      'rgb(47, 70, 83)',
+      'rgb(99, 160, 167)',
+      'rgb(210, 130, 104)',
+      'rgb(147, 199, 175)',
+      'rgb(118, 158, 132)',
+      'rgb(200, 133, 47)']
+    for (j = i; j < rgb.length;) {
+      circlearray();
+      return rgb[j];
+    }
   };
 
   let xhr = new XMLHttpRequest();
@@ -121,7 +134,7 @@ window.onload = (function () {
     data[i].per = JSON.parse(xhr.responseText).data.series[i];
   }
 
-  this.ctx =  document.getElementById("canvas2").getContext("2d");
+  this.ctx = document.getElementById("canvas2").getContext("2d");
   var pieChart = new PieChart(ctx, 150);
   pieChart.init(data);
 })()
